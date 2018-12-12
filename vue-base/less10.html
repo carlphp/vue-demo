@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件通过prop 想子组件传递数据</title>
+</head>
+<body>
+
+<div id="app">
+    
+<page-component title="hello world"></page-component>
+<page-component title="you are kids"></page-component>
+
+<!-- 使用 v-bind 动态传递特性，开始并不知道具体内容 -->
+<page-component v-for="page in pages" v-bind:title="page.title"></page-component>
+
+</div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+Vue.component('page-component', {
+
+    props: ['title'],
+    template: '<h3>{{ title }}</h3>'
+
+});
+
+new Vue({
+    el: '#app',
+
+    data: {
+        pages: [
+            {'title': '昨日重新'},
+            {'title': '你哥呆逼'},
+            {'title': 'go to sleep'}
+        ]
+    }
+}) 
+</script>
+</html>

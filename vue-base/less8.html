@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue model</title>
+</head>
+<body>
+
+<div id="app">
+    
+<p>input: {{ msg }}</p>
+<input v-model.trim="msg">
+
+<p>radio: {{ checked }}</p>
+<input type="checkbox" v-model="checked">
+
+<p>checks: {{ checks }}</p>
+<input type="checkbox" value="apple" v-model="checks">
+<input type="checkbox" value="orange" v-model="checks">
+<input type="checkbox" value="banana" v-model="checks">
+
+<p>radio: {{ num }}</p>
+<input type="radio" value="1" v-model="num">
+<input type="radio" value="2" v-model="num">
+
+<p>select {{ selected }}</p>
+    <option>a</option>
+    <option>b</option>
+    <option>c</option>
+</select>
+
+</div>
+
+
+<hr>
+<div id="app1">
+
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">{{ option.text }}</option>
+    </select>
+    <p>动态 option</p>
+    <p>{{ selected }}</p>
+
+</div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+new Vue({
+    el: '#app1',
+
+    data: {
+        selected: 'a',
+        options: [
+            {text: 'one', value: 'a'},
+            {text: 'two', value: 'b'},
+            {text: 'three', value: 'c'}
+        ],
+    }
+});
+
+
+let vm = new Vue({
+
+    el: '#app',
+
+    data: {
+        msg: '',
+        checked: false,
+        checks: [],
+        num: 1,
+        selected: '',
+    },
+    
+});
+
+    
+</script>
+</html>

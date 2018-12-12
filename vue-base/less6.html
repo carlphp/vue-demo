@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 列表渲染</title>
+</head>
+<body>
+
+<div id="app">
+
+<li v-for="(user, index) in users">index: {{ index }} {{ user.name }} : {{ user.sex }}</li>    
+
+
+<li v-for="(user, index) of users">index: {{ index }} {{ user.name }} : {{ user.sex }}</li> 
+
+
+<li v-for="(val, key) in teacher">{{ key }} : {{ val }}</li>    
+
+</div>
+
+
+
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+let vm = new Vue({
+
+    el: '#app',
+
+    data: {
+        teacher: {
+            name: 'xx',
+            sex: 'oo',
+            tel: '110'
+        },
+
+        users: [
+            {
+                name: 'xiao hong',
+                sex: 'female',
+            },
+            {
+                name: 'xiao huang',
+                sex: 'male', 
+            }
+        ]
+    },
+    
+});
+
+    
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 事件处理</title>
+</head>
+<body>
+
+<div id="app">
+    
+
+{{ count }}
+
+<button v-on:click="clickMe">click Me</button>
+
+
+</div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+
+let vm = new Vue({
+
+    el: '#app',
+
+    data: {
+        count: 0,
+    },
+
+    methods: {
+        clickMe: function(e) {
+            this.count++;
+        }
+    }
+    
+});
+
+    
+</script>
+</html>

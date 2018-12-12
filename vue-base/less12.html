@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue组件  通过事件向父组件发送消息</title>
+</head>
+<body>
+
+<div id="app">
+
+<div v-bind:style="{fontSize: fontSize + 'em'}">
+    
+<test-component v-bind:page="page" v-on:enlarge-text="fontSize += $event"></test-component>
+
+</div>
+    
+
+</div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+Vue.component('test-component', {
+
+    props: ['page'],
+
+    //使用事件抛出要放大的值 $emit 第二个参数
+    template: `
+        <div class="wrapper">
+            <div class="header">
+                {{ page.header }}
+            </div>
+            <button v-on:click="$emit('enlarge-text', 0.1)">large-btn</button>
+            <div class="content">
+                {{ page.content }}
+            </div>
+        </div>
+    `
+
+});
+
+
+let vm = new Vue({
+
+    el: '#app',
+
+    data: {
+        fontSize: 1,
+        page: {
+            header: 'test header',
+            content: 'test content',
+        }
+    }
+
+
+    
+});
+
+    
+</script>
+</html>

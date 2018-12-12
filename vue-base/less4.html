@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue css style 绑定</title>
+
+</head>
+<style>
+    .text-danger {
+        color: red;
+    }
+    .green {
+        color: green;
+    }
+    .yellow {
+        color: yellow;
+    }
+</style>
+<body>
+
+<div id="app">
+<h2>绑定 class</h2>
+<p><span v-bind:class="{green: green}">{{ msg }}</span></p>
+
+<p><span v-bind:class="classObj">{{ msg }}</span></p>
+
+<p><span v-bind:class="[yellow_tag]">{{ msg }}</span></p>
+
+</div>
+
+<div id="app2">
+<h2>绑定内联样式</h2>
+
+<div v-bind:style="styleObj">{{ msg }}</div>
+
+</div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+new Vue({
+
+    el: '#app2',
+
+    data: {
+
+        styleObj: {
+            color: 'blue',
+            fontSize: '18px',
+        }
+
+    },
+    
+});
+
+
+let vm = new Vue({
+
+    el: '#app',
+
+    data: {
+        msg: 'text-danger',
+
+        yellow_tag: 'yellow',
+
+        green: true,
+
+        classObj: {
+            'text-danger': true,
+        }
+
+    },
+    
+});
+
+    
+</script>
+</html>

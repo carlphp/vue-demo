@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 条件渲染</title>
+</head>
+<body>
+
+<div id="app">
+    
+<div v-if="is_ok">is this if content</div>
+
+</div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+let data = {
+    is_ok: true,
+};
+
+let vm = new Vue({
+
+    el: '#app',
+    data: data,
+    
+});
+
+console.log(vm.$data == data);
+    
+</script>
+</html>

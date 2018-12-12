@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 实例</title>
+</head>
+<body>
+
+<div id="app">
+    
+<span>{{ msg }}</span>
+
+</div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+let data = {
+    msg: 'hello vue',
+};
+
+let vm = new Vue({
+
+    el: '#app',
+
+    data: data,
+    
+});
+
+console.log(vm.$data == data);
+    
+</script>
+</html>

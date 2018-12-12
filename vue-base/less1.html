@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 模板语法</title>
+</head>
+<body>
+<div id="app">
+    
+
+<span>{{ msg }}</span>
+
+<div v-html="htmlMsg"></div>
+
+<button v-bind:disabled="isDisabled">switchs</button>
+
+{{ msg.split('').reverse().join('') }}
+
+
+
+
+</div>   
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+let data = {
+    msg: 'hello vue',
+    htmlMsg: '<span style="color: red">html msg</span>',
+    isDisabled: true,
+};
+
+let vm = new Vue({
+
+    el: '#app',
+
+    data: data,
+    
+});
+
+
+
+</script>
+</html>

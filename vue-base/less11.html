@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue组件单个根元素</title>
+</head>
+<body>
+
+<div id="app">
+    
+<test-component v-bind:page="page"></test-component>
+
+</div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+Vue.component('test-component', {
+
+    props: ['page'],
+
+    template: `
+        <div class="wrapper">
+            <div class="header">
+                {{ page.header }}
+            </div>
+            <div class="content">
+                {{ page.content }}
+            </div>
+        </div>
+    `
+
+});
+
+
+let vm = new Vue({
+
+    el: '#app',
+
+    data: {
+        page: {
+            header: 'test header',
+            content: 'test content',
+        }
+    }
+
+
+    
+});
+
+    
+</script>
+</html>

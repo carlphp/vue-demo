@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 计算属性</title>
+</head>
+<body>
+
+<div id="app">
+    
+<p>origin msg :<span>{{ msg }}</span></p>
+
+<p>compute reverse msg: {{ reversedMsg }}</p>
+
+<p>methods reverse msg: {{ reversedMsgMethod() }}</p>
+
+</div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+let data = {
+    msg: 'hello vue',
+};
+
+let vm = new Vue({
+
+    el: '#app',
+
+    data: data,
+
+    computed: {
+        reversedMsg: function() {
+            return this.msg.split('').reverse().join('');
+        }
+    },
+    // 计算属性会缓存结果只有当依赖改变才会重新计算VS方法每次都会执行函数
+    methods: {
+        reversedMsgMethod: function() {
+            return this.msg.split('').reverse().join('');
+        }
+    }
+    
+});
+
+    
+
+
+</script>
+</html>
